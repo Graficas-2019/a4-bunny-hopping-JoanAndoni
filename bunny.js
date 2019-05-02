@@ -148,7 +148,6 @@ function createScene(canvas) {
 
   // And put the geometry and material together into a mesh
   var color = 0xffffff;
-  var ambient = 0x888888;
 
   // Create the objects
   loadObj();
@@ -245,7 +244,7 @@ function setKeysTime(numeroSaltos) {
   tiempoPorSalto = 1 / numeroSaltos;
   tiempoMovimientoSalto = tiempoPorSalto / jumpMovement.length;
   for (var i = 0; i < numeroSaltos; i++) {
-    for (var i2 = 0; i2 < 5; i2++) {
+    for (var i2 = 0; i2 < jumpMovement.length; i2++) {
       positionKeys.push((i * tiempoPorSalto) + (i2 * tiempoMovimientoSalto));
     }
     rotationKeys.push(i * tiempoPorSalto);
@@ -272,7 +271,7 @@ function setAllMovements() {
     jumpMovement.forEach((jumpMove, index) => {
       movements.push({
         x: jump.x + (index * xFraction),
-        y: jumpMovement[index],
+        y: jumpMove,
         z: jump.z + (index * zFraction)
       })
     });
